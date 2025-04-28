@@ -19,7 +19,7 @@ public class ApplicationConfig {
 
     private final Gson gson = new Gson();
 
-    // ✅ Add this to inject into AuthService
+    //  Add this to inject into AuthService
     @Bean
     public AWSSecretsManager secretsManagerClient() {
         return AWSSecretsManagerClientBuilder.standard()

@@ -45,11 +45,11 @@ public class StreamLambdaHandler implements RequestStreamHandler {
                 PutJobSuccessResultRequest successRequest = new PutJobSuccessResultRequest().withJobId(jobId);
                 pipelineClient.putJobSuccessResult(successRequest);
 
-                System.out.println("✅ CodePipeline job success reported for jobId: " + jobId);
+                System.out.println(" CodePipeline job success reported for jobId: " + jobId);
             }
         } catch (Throwable ignored) {
-            // ❌ No "Exception e", but still logs error
-            System.err.println("❌ ERROR_CODE: CP-FAIL-001 - Failed to notify CodePipeline of success.");
+            // No "Exception e", but still logs error
+            System.err.println(" ERROR_CODE: CP-FAIL-001 - Failed to notify CodePipeline of success.");
         }
     }
 }

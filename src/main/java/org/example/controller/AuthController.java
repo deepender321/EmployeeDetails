@@ -14,14 +14,14 @@ public class AuthController {
     @Autowired
     private JwtUtil jwtUtil;
 
-    // ✅ Username → List of roles
+    // Username → List of roles
     private static final Map<String, List<String>> USERS = Map.of(
             "deep", List.of("admin", "dev"),
             "varsha", List.of("dev"),
             "john", List.of("admin")
     );
 
-    // ✅ Username → Password
+    //  Username → Password
     private static final Map<String, String> USER_PASSWORDS = Map.of(
             "deep", "admin123",
             "varsha", "dev123",
@@ -33,7 +33,7 @@ public class AuthController {
         String username = credentials.get("username");
         String password = credentials.get("password");
 
-        // ✅ Validate username and password
+        //  Validate username and password
         if (USER_PASSWORDS.containsKey(username) && USER_PASSWORDS.get(username).equals(password)) {
             List<String> roles = USERS.get(username);
             String token = jwtUtil.generateToken(username, roles);
@@ -45,7 +45,7 @@ public class AuthController {
             ));
         }
 
-        // ❌ Invalid credentials
+        // Invalid credentials
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");
     }
 }

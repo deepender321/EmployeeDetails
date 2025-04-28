@@ -50,7 +50,7 @@ public class JwtFilter extends OncePerRequestFilter {
             System.out.println("Received token: " + token);
 
             if (jwtUtil.validateToken(token)) {
-                System.out.println("Token validation successful ✅");
+                System.out.println("Token validation successful ");
 
                 Claims claims = jwtUtil.getClaims(token);
                 String username = claims.getSubject();
